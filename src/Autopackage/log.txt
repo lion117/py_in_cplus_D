@@ -1,0 +1,68 @@
+py_packge  product
+main task :
+1   rebuild the package module
+2   test the pure python module (import )
+3   test the pure  and user module
+4   test the multiple folder
+5   test pure user , third party module
+6   test the one key package in C++
+
+/////////////////////////////////////////////////////
+// design and conclusion
+1   the first test i wanna to do is to distribute current
+    files and add some module int the files watch have changed
+
+
+
+
+////////////////////////////////////////////////////////
+// debug and analise
+1   when i try to distribute the files . there is some errors occurred .
+
+2   assumption :
+    1   base on current situation , the abstract function rely on the python interpreter which have been load into the C++ interperter
+    to prove this assumption , what i need to do is just call another python module in C++ , what i need to do is just watch the files in the destination folder
+    the assumption have been approved . all the relationship is connect by the C++ python interpreter , not in the python module . which means the abstracted process have to stay in the C++ module. a single python
+module would make no sense .
+
+3   assumption 2
+    the file should bind with the object . if only one object have call the function , the another did not , the file would not be the specified folder
+    a bad new , even i call the module in another object handle , the module would still pass the folder
+    there will two kind of option . one is the abstracted file is base on the python interpreter ,
+the other is all the file in the folder will be passed to there
+    i could new a py file which not load into the C++
+    to take a glimpse
+    after testing , the second option have been denyed .
+
+4   there is another situation need i to take into consideration .would it copy all the module once time i import it into the folder , or just call parts which be used in the python module
+    resould : even i have import the module , but if i don't not used , if would not be pass . that is good for the release file size control.
+
+5   one good new is that the python pyc file is a good protected for resource code for normal people . although i don't whether therre is a tool to anti compile it . the possibility  should be high
+
+6   the object have been exit directly .i guess it is for the spyder have occupy the file . now test again
+   result :  this assuption have been prove impossible
+    the reason call the application exit for the module name i wrote was incorrect
+
+7   once time i import the thread in the file , the software would exit . there are two reason for this .
+    1   the import module not take into used
+    2   the module could not be compile and abstracted
+
+8   something have been changed . one file did not take the pyc format but the py . but now it is done . this phenomenon is really unstable .i need keep my eyss on it
+    result : the py file have show up again once the improt the module which was not be called
+
+9   to test the module import , i think i should test the user module , then the pure python module
+
+10  even the module did not been called , if i take used from module import all , the module would be load either . to prove this assumption , what i need to do is just import all the threading
+    the result show the threading file did not be pass . the assuption is not correct.
+    the
+
+10  according the base test , the call user module have no relation ship with import and classand function . so the pure python and user python difference need me find out
+
+11  the test show the file account not change , the pure python have two option .one is that it have been loaded
+ the aother one could not be loaded . i prefer the first one . just call the qt for test
+
+12  the third party file could not load.
+
+13  ok the pure python and user python module have been pass the stand alone environment test . what i could get is that all the pure python need module would be import once time . if there is not much user module , there is no necessary for the package module . at the same time . whatis more i could set the packge module as global environment to protected my resource code safety.
+
+14

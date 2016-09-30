@@ -1,0 +1,8 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ReferencePath>E:\A-py_test\py_formal_package_demo\Debug\</ReferencePath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <StartWorkingDirectory>E:\A-py_test\py_formal_package_demo\Debug\</StartWorkingDirectory>
+  </PropertyGroup>
+</Project>

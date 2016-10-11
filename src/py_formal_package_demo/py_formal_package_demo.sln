@@ -1,16 +1,18 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7440B46C-7AA7-4ADC-A994-F4B9AC424FB8}"
 	ProjectSection(SolutionItems) = preProject
 		logger.txt = logger.txt
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dllobj", "pydll\pyfolder_demo.vcproj", "{AA6154C4-FC9E-43BE-90AE-CD11914BA643}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dllobj", "pydll\pyfolder_demo.vcxproj", "{AA6154C4-FC9E-43BE-90AE-CD11914BA643}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dlltest", "dlltest\dlltest.csproj", "{25BB258B-A584-46D7-93E2-8592395EB986}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "py_formal_package_demo", "py_formal_package_demo\py_formal_package_demo.vcproj", "{716E5327-A866-4B96-B069-2EB3FB5E1843}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "py_formal_package_demo", "py_formal_package_demo\py_formal_package_demo.vcxproj", "{716E5327-A866-4B96-B069-2EB3FB5E1843}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

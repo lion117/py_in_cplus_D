@@ -161,16 +161,20 @@ int main(int argc, char* argv[])
 	ffpython_t::add_path("./");
     ffpython_t ffpython;//("ext2");
 
-    TestGuard("test_base", test_base(ffpython));
-    TestGuard("test_stl", test_stl(ffpython));
-    TestGuard("test_reg_function", test_reg_function());
-    TestGuard("test_register_base_class", test_register_base_class(ffpython));
+	TestGuard("test_base", test_base(ffpython));
+	//TestGuard("test_stl", test_stl(ffpython));
+	//TestGuard("test_reg_function", test_reg_function());
+	//TestGuard("test_register_base_class", test_register_base_class(ffpython));
 
-    TestGuard("test_register_inherit_class", test_register_inherit_class(ffpython));
-    TestGuard("test_cpp_obj_to_py", test_cpp_obj_to_py(ffpython));
-    TestGuard("test_cpp_obj_py_obj", test_cpp_obj_py_obj(ffpython));
-    
-    TestGuard("test_py_class_lambda", test_py_class_lambda(ffpython));
+	//TestGuard("test_register_inherit_class", test_register_inherit_class(ffpython));
+	//TestGuard("test_cpp_obj_to_py", test_cpp_obj_to_py(ffpython));
+	//TestGuard("test_cpp_obj_py_obj", test_cpp_obj_py_obj(ffpython));
+
+	//TestGuard("test_py_class_lambda", test_py_class_lambda(ffpython));
+	ffpython.call<void>("py_install", "sayhi");
+	ffpython.call<void>("py_install", "test");
+
+
     
 #ifdef _WIN32
 	system("pause");

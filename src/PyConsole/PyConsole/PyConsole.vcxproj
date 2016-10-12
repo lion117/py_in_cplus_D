@@ -109,7 +109,10 @@
     <ClCompile Include="unit_test.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="fftest.py" />
+    <None Include="..\Python\fftest.py" />
+    <None Include="..\Python\operation.py" />
+    <None Include="..\Python\py_install.py" />
+    <None Include="..\Python\py_second.py" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

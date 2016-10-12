@@ -11,6 +11,9 @@
     <Filter Include="demo">
       <UniqueIdentifier>{5322b75c-e5dd-4273-8fea-58ff0c93ffd9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="package">
+      <UniqueIdentifier>{342d614b-bfe1-495b-89d7-79e1b0900c90}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt">
@@ -45,7 +48,16 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="fftest.py">
+    <None Include="..\Python\operation.py">
+      <Filter>package</Filter>
+    </None>
+    <None Include="..\Python\py_install.py">
+      <Filter>package</Filter>
+    </None>
+    <None Include="..\Python\py_second.py">
+      <Filter>package</Filter>
+    </None>
+    <None Include="..\Python\fftest.py">
       <Filter>demo</Filter>
     </None>
   </ItemGroup>

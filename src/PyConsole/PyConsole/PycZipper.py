@@ -17,6 +17,12 @@ import shutil
 import zipfile
 
 
+
+g_sys_default_c='C:\Python27\Lib'
+g_sys_default_d='D:\Python27\Lib'
+
+
+
 def sayhi():
     print "PycZipper begin to work"
 
@@ -49,6 +55,15 @@ def extractFiles(t_dest_dir, t_src_list):
         print i_dest +'   '+itor
         # copyFiles(i_dest, itor)
 
+
+def pyPathFilter(t_dest_dir, t_src_file):
+    for itor_path in sys.path:
+        pass
+
+    return
+
+
+
 #过滤路径 去掉最大绝对路径
 def filiterPath(t_dest_dir, t_src_file):
     dest = t_dest_dir
@@ -66,6 +81,8 @@ def filiterPath(t_dest_dir, t_src_file):
         if p >= 0:
             dest = dest[:p]
     return dest
+
+
 
 #拷贝文件
 #如果目标路径不存在，则创建

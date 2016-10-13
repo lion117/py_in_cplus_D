@@ -18,13 +18,13 @@ import zipfile
 
 
 def sayhi():
-    print "python zipfile module test "
+    print "PycZipper begin to work"
 
 
 ######################################
 #下面所有部分是相关的pyc抽取函数
 #获得程序中所有模块的路径
-def getModulesPath():
+def getPythonModulesPath():
     lst = []
     #sys.modules是一个字典，数据格式如下：
     #{'site': <module 'site' from 'D:\Python27\lib\site.pyc'>,
@@ -38,25 +38,27 @@ def getModulesPath():
     return lst
 
 #抽取文件
-def extractFiles(destDir, files):
-    destDir.replace("/", "\\")
-    if destDir[-1] != '\\' :
-        destDir += '\\'
+def extractFiles(t_dest_dir, t_src_list):
+    t_dest_dir.replace("\\", "/")
+    if t_dest_dir.rfind('\\') != 0 or t_dest_dir.rfind('/') != 0:
+        t_dest_dir += '/'
 
-    for f in files :
-        dest = filiterPath(destDir, f)
-        copyF(dest, f)
+
+    for itor in t_src_list :
+        i_dest = filiterPath(t_dest_dir, itor)
+        print i_dest +'   '+itor
+        # copyFiles(i_dest, itor)
 
 #过滤路径 去掉最大绝对路径
-def filiterPath(destDir, srcFile):
-    dest = destDir
+def filiterPath(t_dest_dir, t_src_file):
+    dest = t_dest_dir
     maxLen = 0
-    for path in sys.path:
-        lenp = len(path)
-        if lenp < len(srcFile) and path == srcFile[:lenp]:
-            if maxLen < lenp:
-                dest = destDir + srcFile[lenp+1:]
-                maxLen = lenp
+    for itor_path in sys.path:
+        i_len = len(itor_path)
+        if i_len < len(t_src_file) and itor_path == t_src_file[:i_len]:
+            if maxLen < i_len:
+                dest = t_dest_dir + t_src_file[i_len + 1:]
+                maxLen = i_len
 
     dest.replace("/", "\\")
     if '.' in dest: #去掉文件名
@@ -67,7 +69,7 @@ def filiterPath(destDir, srcFile):
 
 #拷贝文件
 #如果目标路径不存在，则创建
-def copyF(destDir, srcFile):
+def copyFiles(destDir, srcFile):
     if not os.path.isfile(srcFile):
         print "error : file %s not exist!" % srcFile
         return False
@@ -97,7 +99,7 @@ def elimitcopy(folderpath):
                 else :
                     return False
 
-def deltempdir(dirpath):
+def deleteTemps(dirpath):
     if os.path.isdir(dirpath) is True:
         shutil.rmtree(dirpath)
         return True
@@ -128,26 +130,26 @@ def find_targetfolder():
 
 
 def pyzipfiles():
-    a = getModulesPath()
-    DEST_ZIP_FILE="C:/Users/LEO/Desktop/python27.zip"
-    DEST_PATH="C:/templefolder/"
-    extractFiles(DEST_PATH, a)
+    i_module_path = getPythonModulesPath()
+    i_dest_zip= "C:/Users/LEO/Desktop/python27.zip"
+    i_temp_folder= "C:/templefolder"
+    extractFiles(i_temp_folder, i_module_path)
 
-    elimitcopy(DEST_PATH)
-    argv = ("-c", DEST_ZIP_FILE, "src", DEST_PATH)
+    elimitcopy(i_temp_folder)
+    argv = ("-c", i_dest_zip, "src", i_temp_folder)
     zipfile.main(argv)
     cpy_py27dll()  # copy the python27.dll to the foledr
     ultipath=find_targetfolder()
     if ultipath is not None:
-        shutil.copy2(DEST_ZIP_FILE, ultipath)
+        shutil.copy2(i_dest_zip, ultipath)
         print 'the zipfile have been copy to the release folder'
-
-    if deltempdir(DEST_PATH):
+    if deleteTemps(i_temp_folder):
         print 'work have been done'
     else:
         print 'delete folder failed'
 
 if __name__=='__main__':
-    #zipfiles()
-    print 'self module test'
-    print 'please not run the zipfiles function in the file '
+    print("begin to run")
+    pyzipfiles()
+    # i_test = '12345'
+    # print  i_test.rfind('/')

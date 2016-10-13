@@ -14,6 +14,9 @@
     <Filter Include="package">
       <UniqueIdentifier>{342d614b-bfe1-495b-89d7-79e1b0900c90}</UniqueIdentifier>
     </Filter>
+    <Filter Include="logic">
+      <UniqueIdentifier>{8c81d40d-147b-4fa2-89c3-e098917f531d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt">
@@ -48,17 +51,20 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Python\operation.py">
-      <Filter>package</Filter>
-    </None>
     <None Include="..\Python\py_install.py">
-      <Filter>package</Filter>
-    </None>
-    <None Include="..\Python\py_second.py">
       <Filter>package</Filter>
     </None>
     <None Include="..\Python\fftest.py">
       <Filter>demo</Filter>
+    </None>
+    <None Include="..\Python\py_second.py">
+      <Filter>logic</Filter>
+    </None>
+    <None Include="..\Python\operation.py">
+      <Filter>logic</Filter>
+    </None>
+    <None Include="PycZipper.py">
+      <Filter>package</Filter>
     </None>
   </ItemGroup>
 </Project>

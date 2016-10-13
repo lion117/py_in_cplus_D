@@ -113,6 +113,7 @@
     <None Include="..\Python\operation.py" />
     <None Include="..\Python\py_install.py" />
     <None Include="..\Python\py_second.py" />
+    <None Include="PycZipper.py" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

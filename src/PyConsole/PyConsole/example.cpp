@@ -171,8 +171,8 @@ int main(int argc, char* argv[])
 	//TestGuard("test_cpp_obj_py_obj", test_cpp_obj_py_obj(ffpython));
 
 	//TestGuard("test_py_class_lambda", test_py_class_lambda(ffpython));
-	ffpython.call<void>("py_install", "sayhi");
-	ffpython.call<void>("py_install", "test");
+	ffpython.call<void>("PycZipper", "sayhi");
+	ffpython.call<void>("pyzipfiles", "pyzipfiles");
 
 
     

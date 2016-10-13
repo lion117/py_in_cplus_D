@@ -1,5 +1,9 @@
 
 
+def sayhi():
+    print("hello , this is python speaking ")
+
+
 def test_base(a1, a2, a3):
 	print('test_base', a1, a2, a3)
 	return 0

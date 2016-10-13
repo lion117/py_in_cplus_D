@@ -109,8 +109,8 @@ def deltempdir(dirpath):
 
 def test():
     a = getModulesPath()
-    DEST_ZIP_FILE="C:/Users/LEO/Desktop/python27.zip"
-    DEST_PATH="C:/Users/LEO/Desktop/pykag/"
+    DEST_ZIP_FILE="D:\System\Desktop/python27.zip"
+    DEST_PATH="D:\System\Desktop/pykag/"
     extractFiles(DEST_PATH, a)
 
     elimitcopy(DEST_PATH)

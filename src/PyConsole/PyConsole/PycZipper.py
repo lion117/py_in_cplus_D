@@ -15,13 +15,13 @@ import sys
 import os
 import shutil
 import zipfile
-
+import PyZipper
 
 
 g_sys_default_c='C:/Python27/lib/'
 g_sys_default_d='D:/Python27/lib/'
 g_sys_temp_dir = "C:/TempPyZip"
-g_dest_zip= "C:/Users/LEO/Desktop/python27.zip"
+g_dest_zip= "D:/System/Desktop/python27.zip"
 
 def sayhi():
     print "PycZipper begin to work"
@@ -52,8 +52,7 @@ def extractFiles(t_dest_dir, t_src_list):
 
     for itor in t_src_list :
         i_dest = pyPathFilter(t_dest_dir, itor)
-        print i_dest +'   '+itor
-        # copyFiles(i_dest, itor)
+        copyFiles(i_dest, itor)
 
 
 def pyPathFilter(t_dest_dir, t_src_file):
@@ -101,18 +100,18 @@ def filiterPath(t_dest_dir, t_src_file):
 
 #拷贝文件
 #如果目标路径不存在，则创建
-def copyFiles(destDir, srcFile):
-    if not os.path.isfile(srcFile):
-        print "error : file %s not exist!" % srcFile
+def copyFiles(t_dest_file, t_src_file):
+    if not os.path.isfile(t_src_file):
+        print "error : file %s not exist!" % t_src_file
         return False
-    if not os.path.isdir(destDir):
-        os.mkdir(destDir)
-        print "make dir:", destDir
+
+    if not os.path.exists(os.path.dirname(t_dest_file)):
+        os.makedirs(t_dest_file)
     try:
-        shutil.copy2(srcFile, destDir)
-        print "copy file : %s to %s" % (srcFile, destDir)
-    except IOError:
-        print "error : copy %s to %s faild" % (srcFile, destDir)
+        shutil.copy2(t_src_file, t_dest_file)
+        print "copy file : %s to %s" % (t_src_file, t_dest_file)
+    except IOError ,ex:
+        print "error : copy %s to %s faild : %s" % (t_src_file, t_dest_file, ex)
         return False
     return True
 
@@ -161,13 +160,20 @@ def find_targetfolder():
         return None
 
 
+def init():
+    if os.path.exists(g_sys_temp_dir) is False :
+        os.makedirs(g_sys_temp_dir)
+
+
 def pyzipfiles():
+    init()
     i_module_path = getPythonModulesPath()
     extractFiles(g_sys_temp_dir, i_module_path)
     # elimitcopy(g_sys_temp_dir)
     argv = ("-c", g_dest_zip, "src", g_sys_temp_dir)
     zipfile.main(argv)
-    cpy_py27dll()  # copy the python27.dll to the foledr
+    # PyZipper.pyZipFile(g_sys_temp_dir, g_dest_zip)
+    # cpy_py27dll()  # copy the python27.dll to the foledr
     ultipath=find_targetfolder()
     if ultipath is not None:
         shutil.copy2(g_dest_zip, ultipath)

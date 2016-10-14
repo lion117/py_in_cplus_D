@@ -172,7 +172,7 @@ int main(int argc, char* argv[])
 
 	//TestGuard("test_py_class_lambda", test_py_class_lambda(ffpython));
 	ffpython.call<void>("PycZipper", "sayhi");
-	ffpython.call<void>("pyzipfiles", "pyzipfiles");
+	ffpython.call<void>("PycZipper", "pyzipfiles");
 
 
     

@@ -106,7 +106,7 @@ def copyFiles(t_dest_file, t_src_file):
         return False
 
     if not os.path.exists(os.path.dirname(t_dest_file)):
-        os.makedirs(t_dest_file)
+        os.makedirs(os.path.dirname(t_dest_file))
     try:
         shutil.copy2(t_src_file, t_dest_file)
         print "copy file : %s to %s" % (t_src_file, t_dest_file)
@@ -169,19 +169,20 @@ def pyzipfiles():
     init()
     i_module_path = getPythonModulesPath()
     extractFiles(g_sys_temp_dir, i_module_path)
+    # return
     # elimitcopy(g_sys_temp_dir)
-    argv = ("-c", g_dest_zip, "src", g_sys_temp_dir)
-    zipfile.main(argv)
-    # PyZipper.pyZipFile(g_sys_temp_dir, g_dest_zip)
+    # argv = ("-c", g_dest_zip, "src", g_sys_temp_dir)
+    # zipfile.main(argv)
+    PyZipper.pyZipFile(g_sys_temp_dir, g_dest_zip)
     # cpy_py27dll()  # copy the python27.dll to the foledr
-    ultipath=find_targetfolder()
-    if ultipath is not None:
-        shutil.copy2(g_dest_zip, ultipath)
-        print 'the zipfile have been copy to the release folder'
-    if deleteTemps(g_sys_temp_dir):
-        print 'work have been done'
-    else:
-        print 'delete folder failed'
+    # ultipath=find_targetfolder()
+    # if ultipath is not None:
+    #     shutil.copy2(g_dest_zip, ultipath)
+    #     print 'the zipfile have been copy to the release folder'
+    # if clean(g_sys_temp_dir):
+    #     print 'work have been done'
+    # else:
+    #     print 'delete folder failed'
 
 
 def generateZipPackage():
@@ -199,10 +200,11 @@ def generateZipPackage():
 
 
 if __name__=='__main__':
-    print("begin to run")
-    pyzipfiles()
+    print("begin to main")
+    # pyzipfiles()
     # i_test = '12345'
     # print  i_test.rfind('/')
+    print os.getcwd()
 
 
 

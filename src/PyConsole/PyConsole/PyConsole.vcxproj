@@ -88,6 +88,7 @@
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)\Bin\</OutDir>
     <IntDir>$(SolutionDir)\Object\$(ProjectName)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_PKG</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

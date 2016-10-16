@@ -26,7 +26,12 @@ inline void testMain()
 		i_interpretor.call<void>("test_interface", "add", 99, 1);
 		string i_current_dir = i_interpretor.call<string>("test_interface","getCurrentDir");
 		string i_working_dir = i_interpretor.call<string>("test_interface","getWorkingDir");
-		i_interpretor.call<void>("Py2CplusZipper", "beginPackagePy");
+		cout << i_current_dir << endl;
+		cout << i_working_dir << endl;
+#ifdef _PKG
+		i_interpretor.call<void>("Py2CplusZipper", "beginPackagePy",i_working_dir);
+#endif // _PKG
+		
 	}
 	catch (exception & ex)
 	{

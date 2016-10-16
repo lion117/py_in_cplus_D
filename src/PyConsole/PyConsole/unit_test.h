@@ -3,4 +3,37 @@
 #include <vector>
 #include <iostream>
 #include <map>
+
+#ifdef _WIN32
+#include <cstdlib>
+#endif
+#include "ffpython.h"
 using namespace std;
+
+
+void testMain();
+
+inline void testMain()
+{	
+	/// init python interpreter
+	Py_Initialize();
+
+	ffpython_t::add_path("./");
+	ffpython_t i_interpretor;
+
+	try
+	{
+		i_interpretor.call<void>("test_interface", "add", 99, 1);
+		string i_current_dir = i_interpretor.call<string>("test_interface","getCurrentDir");
+		string i_working_dir = i_interpretor.call<string>("test_interface","getWorkingDir");
+		i_interpretor.call<void>("Py2CplusZipper", "beginPackagePy");
+	}
+	catch (exception & ex)
+	{
+		cout << ex.what() << endl;
+	}
+
+
+	Py_Finalize();
+
+}

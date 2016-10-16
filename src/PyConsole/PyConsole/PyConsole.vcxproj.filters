@@ -66,5 +66,8 @@
     <None Include="PycZipper.py">
       <Filter>package</Filter>
     </None>
+    <None Include="Py2CplusZipper.py">
+      <Filter>package</Filter>
+    </None>
   </ItemGroup>
 </Project>

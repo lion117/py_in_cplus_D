@@ -35,6 +35,8 @@ class Py2CplusZipper:
 
         if os.path.exists(self._temp_dir) is False:
             os.makedirs(self._temp_dir)
+        if os.path.exists(self._dest_zip):
+            os.remove(self._dest_zip)
 
     def getPythonModulesPath(self):
         i_list = []
@@ -100,12 +102,15 @@ class Py2CplusZipper:
 
     def copyPydll(self):
         i_dest_dll= os.path.dirname(self._dest_zip) + "/python27.dll"
+        print i_dest_dll
+        if os.path.exists(i_dest_dll):
+            return # dll had been exist
         i_src_dll_D="D:/Python27/python27.dll"
         i_src_dll_C="C:/Python27/python27.dll"
         if os.path.exists(i_src_dll_C):
             shutil.copy2(i_src_dll_C, i_dest_dll)
         elif os.path.exists(i_src_dll_D):
-            shutil.copy2(i_src_dll_C,i_dest_dll)
+            shutil.copy2(i_src_dll_D,i_dest_dll)
         else:
             print("not find python27.dll in default path")
 
@@ -117,7 +122,7 @@ class Py2CplusZipper:
         i_module_list = i_this.getPythonModulesPath()
         i_this.extractFiles(i_module_list)
         PyZipper.pyZipFile(i_this._temp_dir, i_this._dest_zip)
-        i_this.copyPydll()
+        #i_this.copyPydll()
         i_this.clean()
 
     @staticmethod
@@ -143,5 +148,5 @@ class Py2CplusZipper:
 
 
 if __name__ == "__main__":
-    Py2CplusZipper.main()
+    beginPackagePy()
     pass

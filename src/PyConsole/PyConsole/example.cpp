@@ -154,32 +154,40 @@ void test_py_class_lambda(ffpython_t& ffpython)
     Py_XDECREF(pobj);
 }
 
-int main(int argc, char* argv[])
-{
-    Py_Initialize();
-
-	ffpython_t::add_path("./");
-    ffpython_t ffpython;//("ext2");
-
-	TestGuard("test_base", test_base(ffpython));
-	//TestGuard("test_stl", test_stl(ffpython));
-	//TestGuard("test_reg_function", test_reg_function());
-	//TestGuard("test_register_base_class", test_register_base_class(ffpython));
-
-	//TestGuard("test_register_inherit_class", test_register_inherit_class(ffpython));
-	//TestGuard("test_cpp_obj_to_py", test_cpp_obj_to_py(ffpython));
-	//TestGuard("test_cpp_obj_py_obj", test_cpp_obj_py_obj(ffpython));
-
-	//TestGuard("test_py_class_lambda", test_py_class_lambda(ffpython));
-	ffpython.call<void>("PycZipper", "sayhi");
-	ffpython.call<void>("PycZipper", "pyzipfiles");
-
-
-    
-#ifdef _WIN32
-	system("pause");
-#endif
-	Py_Finalize();
-    printf("main exit...\n");
-    return 0;
-}
+//int main(int argc, char* argv[])
+//{
+//    Py_Initialize();
+//
+//	ffpython_t::add_path("./");
+//    ffpython_t ffpython;//("ext2");
+//
+//	TestGuard("test_base", test_base(ffpython));
+//	//TestGuard("test_stl", test_stl(ffpython));
+//	//TestGuard("test_reg_function", test_reg_function());
+//	//TestGuard("test_register_base_class", test_register_base_class(ffpython));
+//	//TestGuard("test_register_inherit_class", test_register_inherit_class(ffpython));
+//	//TestGuard("test_cpp_obj_to_py", test_cpp_obj_to_py(ffpython));
+//	//TestGuard("test_cpp_obj_py_obj", test_cpp_obj_py_obj(ffpython));
+//	//TestGuard("test_py_class_lambda", test_py_class_lambda(ffpython));
+//
+//	try 
+//	{ 
+//		ffpython.call<void>("PycZipperPrototype", "sayhi");
+//		//ffpython.call<void>("PycZipper", "pyzipfiles");
+//		ffpython.call<void>("Py2CplusZipper", "beginPackagePy");
+//	}
+//	catch (exception& ex)
+//	{
+//		printf("exception<%s>\n", ex.what());
+//	}
+//
+//
+//
+//    
+//#ifdef _WIN32
+//	system("pause");
+//#endif
+//	Py_Finalize();
+//    printf("main exit...\n");
+//    return 0;
+//}

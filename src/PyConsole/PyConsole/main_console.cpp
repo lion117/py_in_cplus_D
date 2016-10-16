@@ -6,11 +6,15 @@
 #include <iostream>
 using namespace std;
 
-//
-//int _tmain(int argc, _TCHAR* argv[])
-//{
-//
-//	system("pause");
-//	return 0;
-//}
+#include "unit_test.h"
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+
+	testMain();
+
+	system("pause");
+	return 0;
+}
 

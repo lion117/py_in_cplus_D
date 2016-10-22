@@ -28,6 +28,9 @@ inline void testMain()
 		string i_working_dir = i_interpretor.call<string>("test_interface","getWorkingDir");
 		cout << i_current_dir << endl;
 		cout << i_working_dir << endl;
+
+		//i_interpretor.call<void>("PycZipperPrototype", "simpleZip");
+
 		
 #ifdef _PKG
 		i_interpretor.call<void>("Py2CplusZipper", "beginPackagePy",i_working_dir);

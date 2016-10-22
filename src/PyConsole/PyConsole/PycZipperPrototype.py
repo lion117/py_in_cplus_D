@@ -18,6 +18,7 @@ import zipfile
 import PyZipper
 
 
+
 g_sys_default_c='C:/Python27/lib/'
 g_sys_default_d='D:/Python27/lib/'
 g_sys_temp_dir = "C:/TempPyZip"
@@ -199,12 +200,20 @@ def generateZipPackage():
         print 'delete folder failed'
 
 
+def simpleZip():
+    i_list = getPythonModulesPath()
+    for itor in i_list:
+            print itor
+
+
 if __name__=='__main__':
     print("begin to main")
     # pyzipfiles()
     # i_test = '12345'
     # print  i_test.rfind('/')
-    print os.getcwd()
-
+    # print os.getcwd()
+    i_list = getPythonModulesPath()
+    for itor in i_list:
+        print itor
 
 

@@ -12,6 +12,7 @@ import PyZipper
 
 
 def beginPackagePy(t_dest_dir="",t_clean_cache= True):
+    print  "py : "  + t_dest_dir
     Py2CplusZipper.run(t_dest_dir, t_clean_cache)
 
 
@@ -21,14 +22,14 @@ class Py2CplusZipper:
 
     def __init__(self,t_dest_dir="" ,t_clean_cache = False):
         self._is_clean_cache = t_clean_cache
-        self._sys_pydir_c ='C:/Python27/lib/'
-        self._sys_pydir_d='D:/Python27/lib/'
+        self._sys_pydir_c ='C:/Python27/Lib/'
+        self._sys_pydir_d='D:/Python27/Lib/'
 
         if len(t_dest_dir) ==0:
             t_dest_dir = os.getcwd()
         else:
             t_dest_dir = t_dest_dir.replace("\\", "/")
-        if t_dest_dir.rfind("/") !=0 :
+        if self.isEndWithSeperator(t_dest_dir) is False  :
             t_dest_dir+= "/"
         self._temp_dir = t_dest_dir + "PyTemp"
         self._dest_zip = t_dest_dir + "python27.zip"
@@ -37,6 +38,7 @@ class Py2CplusZipper:
             os.makedirs(self._temp_dir)
         if os.path.exists(self._dest_zip):
             os.remove(self._dest_zip)
+            print("py system remove "+ self._dest_zip)
 
     def getPythonModulesPath(self):
         i_list = []
@@ -51,7 +53,7 @@ class Py2CplusZipper:
 
     def extractFiles(self, t_src_list):
         self._temp_dir.replace("\\", "/")
-        if self._temp_dir.rfind('\\') != 0 or self._temp_dir.rfind('/') != 0:
+        if  self.isEndWithSeperator(self._temp_dir) is False :
             self._temp_dir += '/'
         for itor in t_src_list :
             i_dest = self.pyPathFilter(self._temp_dir, itor)
@@ -99,6 +101,14 @@ class Py2CplusZipper:
         if os.path.isdir(self._temp_dir) is True:
             shutil.rmtree(self._temp_dir)
 
+    def isEndWithSeperator(self, t_path):
+        if len(t_path) ==0:
+            return False
+        i_index = len(t_path)-1
+        if t_path.rfind("/") == i_index or t_path.rfind("\\") == i_index:
+            return True
+        else:
+            return False
 
     def copyPydll(self):
         i_dest_dll= os.path.dirname(self._dest_zip) + "/python27.dll"

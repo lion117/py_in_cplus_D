@@ -37,7 +37,12 @@ def pyZipFile(t_src, t_dest):
                 break
             item_file =filename
             if dirpath != t_src:
-                item_file =  dirpath[len(t_src)+1:] + '/' + filename
+                i_len =0
+                if t_src.rfind("/") == len(t_src)-1 or t_src.rfind("\\") == len(t_src)-1:
+                    i_len = len(t_src)
+                else:
+                    i_len = len(t_src)+1
+                item_file =  dirpath[i_len:] + '/' + filename
             i_file = os.path.join(dirpath, filename)
             try:
                 fzip.write(i_file,item_file)

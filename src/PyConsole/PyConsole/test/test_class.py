@@ -15,9 +15,13 @@ class ClassHandle:
 
 
 if __name__ == "__main__":
-    i_this = ClassHandle(20)
-    print i_this.getVar()
-    print ClassHandle._var
+    i_path = 'E:\\Git_demo\\py_in_cplus_D\\src\\PyConsole\\PyConsole/PyTemp/'
+    # i_len = 0
+    # if i_path.rfind("/") == 0 or i_path.rfind("\\") == 0:
+    #     print "hellow"
+    print  i_path.rfind("/")
+    print  len(i_path)
+
 
 
     pass

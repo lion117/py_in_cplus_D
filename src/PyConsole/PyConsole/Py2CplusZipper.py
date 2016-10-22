@@ -33,12 +33,17 @@ class Py2CplusZipper:
             t_dest_dir+= "/"
         self._temp_dir = t_dest_dir + "PyTemp"
         self._dest_zip = t_dest_dir + "python27.zip"
+        self._dest_zip_d = t_dest_dir + "python27_d.zip"
 
         if os.path.exists(self._temp_dir) is False:
             os.makedirs(self._temp_dir)
-        if os.path.exists(self._dest_zip):
-            os.remove(self._dest_zip)
-            print("py system remove "+ self._dest_zip)
+        # if os.path.exists(self._dest_zip):
+        #     os.remove(self._dest_zip)
+        #     print("py system remove "+ self._dest_zip)
+        # if os.path.exists(self._dest_zip_d):
+        #     os.remove(self._dest_zip_d)
+        #     print("py system remove " + self._dest_zip_d)
+
 
     def getPythonModulesPath(self):
         i_list = []
@@ -124,6 +129,11 @@ class Py2CplusZipper:
         else:
             print("not find python27.dll in default path")
 
+    def copyDebugPy27(self):
+        if os.path.exists(self._dest_zip) and  os.path.exists(self._dest_zip_d) is False:
+            shutil.copy2(self._dest_zip,self._dest_zip_d)
+
+
 
 
     @staticmethod
@@ -132,6 +142,7 @@ class Py2CplusZipper:
         i_module_list = i_this.getPythonModulesPath()
         i_this.extractFiles(i_module_list)
         PyZipper.pyZipFile(i_this._temp_dir, i_this._dest_zip)
+        i_this.copyDebugPy27()
         #i_this.copyPydll()
         i_this.clean()
 

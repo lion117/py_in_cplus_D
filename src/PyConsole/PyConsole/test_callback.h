@@ -19,14 +19,14 @@ class ScreenIO;
 void regToPy();
 inline void regToPy(ffpython_t& t_ffpython)
 {
-    t_ffpython.reg_class<ScreenIO>("ScreenIO")
-    	.reg(&ScreenIO::onRecieve, "onRecieve")
-    	.reg(&ScreenIO::start, "start")
-    	.reg(&ScreenIO::start, "stop")
-    	.reg_property(&ScreenIO::_ffpython, "t_ffpython")
-    	.reg_property(&ScreenIO::_pobj, "_pobj");
+    //t_ffpython.reg_class<ScreenIO>("ScreenIO")
+    //	.reg(&ScreenIO::onRecieve, "onRecieve")
+    //	.reg(&ScreenIO::start, "start")
+    //	.reg(&ScreenIO::start, "stop")
+    //	.reg_property(&ScreenIO::_ffpython, "t_ffpython")
+    //	.reg_property(&ScreenIO::_pobj, "_pobj");
 
-    t_ffpython.init("ScreenIO_py");
+    //t_ffpython.init("ScreenIO_py");
 }
 
 

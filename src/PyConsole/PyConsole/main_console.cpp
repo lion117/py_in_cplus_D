@@ -9,12 +9,13 @@ using namespace std;
 #include "unit_test.h"
 
 
-//int _tmain(int argc, _TCHAR* argv[])
-//{
-//
-//	testMain();
-//
-//	system("pause");
-//	return 0;
-//}
+int _tmain(int argc, _TCHAR* argv[])
+{
+
+    //testMain();
+    TestClass::main();
+
+    system("pause");
+    return 0;
+}
 

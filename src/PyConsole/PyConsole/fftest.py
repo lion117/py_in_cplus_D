@@ -80,3 +80,24 @@ def test_cpp_obj_return_py_lambda():
     def test_lambda(a1):
         print('test_lambda....', a1)
     return test_lambda
+
+
+class TestClass():
+	_name = "default"
+
+	def __init__(self, t_name):
+		self._name = t_name
+
+	def add(self, t_a, t_b):
+		return t_a + t_b
+
+	def getCurrentTime(self):
+		import time
+		return time.ctime()
+
+	def whoAmI(self):
+		print self._name
+
+
+def getObjClass():
+    return  TestClass("t_name")

@@ -137,9 +137,9 @@ void test_cpp_obj_to_py(ffpython_t& ffpython)
 void test_cpp_obj_py_obj(ffpython_t& ffpython)
 {
     dumy_t tmp_foo(2013);
-    
-    //foo_t* p = ffpython.call<foo_t*>("fftest", "test_cpp_obj_py_obj", &tmp_foo);
-    //p = NULL;
+
+	foo_t* p = ffpython.call<foo_t*>("fftest", "test_cpp_obj_py_obj", &tmp_foo);
+	p = NULL;
 }
 
 void test_py_class_lambda(ffpython_t& ffpython)
@@ -154,40 +154,27 @@ void test_py_class_lambda(ffpython_t& ffpython)
     Py_XDECREF(pobj);
 }
 
-//int main(int argc, char* argv[])
-//{
-//    Py_Initialize();
-//
-//	ffpython_t::add_path("./");
-//    ffpython_t ffpython;//("ext2");
-//
-//	TestGuard("test_base", test_base(ffpython));
-//	//TestGuard("test_stl", test_stl(ffpython));
-//	//TestGuard("test_reg_function", test_reg_function());
-//	//TestGuard("test_register_base_class", test_register_base_class(ffpython));
-//	//TestGuard("test_register_inherit_class", test_register_inherit_class(ffpython));
-//	//TestGuard("test_cpp_obj_to_py", test_cpp_obj_to_py(ffpython));
-//	//TestGuard("test_cpp_obj_py_obj", test_cpp_obj_py_obj(ffpython));
-//	//TestGuard("test_py_class_lambda", test_py_class_lambda(ffpython));
-//
-//	try 
-//	{ 
-//		ffpython.call<void>("PycZipperPrototype", "sayhi");
-//		//ffpython.call<void>("PycZipper", "pyzipfiles");
-//		ffpython.call<void>("Py2CplusZipper", "beginPackagePy");
-//	}
-//	catch (exception& ex)
-//	{
-//		printf("exception<%s>\n", ex.what());
-//	}
-//
-//
-//
-//    
-//#ifdef _WIN32
-//	system("pause");
-//#endif
-//	Py_Finalize();
-//    printf("main exit...\n");
-//    return 0;
-//}
+int main(int argc, char* argv[])
+{
+    Py_Initialize();
+
+	ffpython_t::add_path("./");
+    ffpython_t ffpython;//("ext2");
+
+	TestGuard("test_base", test_base(ffpython));
+	TestGuard("test_stl", test_stl(ffpython));
+	TestGuard("test_reg_function", test_reg_function());
+	TestGuard("test_register_base_class", test_register_base_class(ffpython));
+	TestGuard("test_register_inherit_class", test_register_inherit_class(ffpython));
+	TestGuard("test_cpp_obj_to_py", test_cpp_obj_to_py(ffpython));
+	TestGuard("test_cpp_obj_py_obj", test_cpp_obj_py_obj(ffpython));
+	TestGuard("test_py_class_lambda", test_py_class_lambda(ffpython));
+
+    
+#ifdef _WIN32
+	system("pause");
+#endif
+	Py_Finalize();
+    printf("main exit...\n");
+    return 0;
+}

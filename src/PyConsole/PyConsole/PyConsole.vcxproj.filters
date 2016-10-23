@@ -37,6 +37,9 @@
     <ClInclude Include="ffpython.h">
       <Filter>demo</Filter>
     </ClInclude>
+    <ClInclude Include="test_callback.h">
+      <Filter>unit test</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -48,6 +51,9 @@
     <ClCompile Include="main_console.cpp" />
     <ClCompile Include="example.cpp">
       <Filter>demo</Filter>
+    </ClCompile>
+    <ClCompile Include="test_callback.cpp">
+      <Filter>unit test</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

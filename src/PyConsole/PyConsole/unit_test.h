@@ -45,7 +45,6 @@ inline void testMain()
 }
 
 
-
 class TestSocket
 {
 public:
@@ -56,3 +55,8 @@ public:
 	bool close() { return false; }
 
 };
+
+
+
+
+

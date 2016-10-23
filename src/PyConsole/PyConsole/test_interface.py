@@ -1,14 +1,18 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*
+# Created by Leo on 2016/10/16.
+import os
+import time
+
 def add(t_a, t_b):
     return t_a + t_b
 
 
 def getCurrentDir():
-    import os
     return os.getcwd()
 
 
 def getWorkingDir():
-    import os
     return os.path.dirname(os.getcwd()) + "/Bin"
 
 
@@ -22,7 +26,6 @@ class TestClass():
         return t_a + t_b
 
     def getCurrentTime(self):
-        import time
         return str(time.ctime())
 
     def whoAmI(self):
@@ -33,10 +36,3 @@ def getObjClass():
     return TestClass("t_name")
 
 
-class ObjTest():
-    def __init__(self):
-        print "init object"
-
-
-def getIntance():
-    return ObjTest()

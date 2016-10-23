@@ -94,14 +94,8 @@ public:
         try
         {
             PyObject * i_ptr_obj = _py_interpretor->call<PyObject*>("test_interface", "getObjClass");
-
-            //PyObject* pobj = _py_interpretor->call<PyObject*>("fftest", "test_cpp_obj_return_py_obj");
-            //_py_interpretor->obj_call<void>(pobj, "sayHi", 1, string("soNice"));
-
-
             _py_interpretor->obj_call<void>(i_ptr_obj, "whoAmI");
             cout << "add algorithm:  " << _py_interpretor->obj_call<int>(i_ptr_obj, "add", 23, 56) << endl;
-
             cout << "get time::  " << _py_interpretor->obj_call<string>(i_ptr_obj, "getCurrentTime") << endl;
             Py_XDECREF(i_ptr_obj);
         }

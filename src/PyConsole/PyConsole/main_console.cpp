@@ -12,9 +12,10 @@ using namespace std;
 int _tmain(int argc, _TCHAR* argv[])
 {
 
-	testMain();
+    testMain();
+    //TestClass::main();
 
-	system("pause");
-	return 0;
+    system("pause");
+    return 0;
 }
 

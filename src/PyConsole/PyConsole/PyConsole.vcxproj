@@ -97,7 +97,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Python27\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Python27\include;$(SolutionDir)Python/;D:\Library\poco-poco-1.7.5-release\Foundation\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -106,6 +106,11 @@
       <AdditionalLibraryDirectories>D:\Library\poco-poco-1.7.5-release\lib_2013;$(SolutionDir)Bin\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>python27_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>del $(SolutionDir)Bin\Python27.zip
+del $(SolutionDir)Bin\Python27_d.zip
+</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='PKGDebug|Win32'">
     <ClCompile>
@@ -114,7 +119,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;_PKG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Python27\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Python27\include;$(SolutionDir)Python/;D:\Library\poco-poco-1.7.5-release\Foundation\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -123,6 +128,11 @@
       <AdditionalLibraryDirectories>D:\Library\poco-poco-1.7.5-release\lib_2013;$(SolutionDir)Bin\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>python27_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>del $(SolutionDir)Bin\Python27.zip
+del $(SolutionDir)Bin\Python27_d.zip
+</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -133,7 +143,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Python27\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Python27\include;$(SolutionDir)Python/;D:\Library\poco-poco-1.7.5-release\Foundation\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -144,6 +154,11 @@
       <AdditionalLibraryDirectories>C:\Python27\libs;D:\Library\poco-poco-1.7.5-release\lib_2013;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>python27.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>del $(SolutionDir)Bin\Python27.zip
+del $(SolutionDir)Bin\Python27_d.zip
+</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='PKGRelease|Win32'">
     <ClCompile>
@@ -154,7 +169,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;_PKG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Python27\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Python27\include;$(SolutionDir)Python/;D:\Library\poco-poco-1.7.5-release\Foundation\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -176,22 +191,29 @@ del $(SolutionDir)Bin\Python27_d.zip
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="PyEmbeder.h" />
+    <ClInclude Include="ffpython.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="test_callback.h" />
     <ClInclude Include="unit_test.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="example.cpp" />
     <ClCompile Include="main_console.cpp" />
-    <ClCompile Include="PyEmbeder.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='PKGDebug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='PKGRelease|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="test_callback.cpp" />
+    <ClCompile Include="unit_test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Python\fftest.py" />
+    <None Include="..\Python\operation.py" />
+    <None Include="..\Python\py_install.py" />
+    <None Include="..\Python\py_second.py" />
     <None Include="Py2CplusZipper.py" />
     <None Include="PycZipper.py" />
   </ItemGroup>

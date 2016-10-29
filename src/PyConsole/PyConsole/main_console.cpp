@@ -12,8 +12,8 @@ using namespace std;
 int _tmain(int argc, _TCHAR* argv[])
 {
 
-    testMain();
-    //TestClass::main();
+    //testMain();
+    TestClass::main();
 
     system("pause");
     return 0;

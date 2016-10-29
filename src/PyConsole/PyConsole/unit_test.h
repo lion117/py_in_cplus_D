@@ -30,8 +30,6 @@ inline void testMain()
         cout << i_current_dir << endl;
         cout << i_working_dir << endl;
 
-        //i_interpretor.call<void>("PycZipperPrototype", "simpleZip");
-
 
 #ifdef _PKG
         i_interpretor.call<void>("Py2CplusZipper", "beginPackagePy", i_working_dir);
@@ -63,6 +61,10 @@ public:
     {
         if (_py_interpretor != nullptr)
         {
+
+#ifdef _PKG
+            _py_interpretor->call<void>("Py2CplusZipper", "beginPackagePy", _working_dir);
+#endif // _PKG
             delete _py_interpretor;
             _py_interpretor = nullptr;
         }
@@ -80,6 +82,8 @@ public:
             string i_working_dir = _py_interpretor->call<string>("test_interface", "getWorkingDir");
             cout << i_current_dir << endl;
             cout << i_working_dir << endl;
+
+            _working_dir = i_working_dir;
         }
         catch (exception & ex)
         {
@@ -109,6 +113,7 @@ public:
 
 private:
     ffpython_t *  _py_interpretor;
+    string        _working_dir;
 
 
 #pragma region MAIN
@@ -117,7 +122,7 @@ public:
     {
 
         TestClass i_this;
-        //i_this.printCurrentDir();
+        i_this.printCurrentDir();
         i_this.TestObjCall();
     }
 #pragma endregion MAIN

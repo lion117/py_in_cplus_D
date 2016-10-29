@@ -12,7 +12,11 @@
 - python3+ release 模式（尚未测试） 
 
 
+## 编译版本
+- debug: debug模式,软件将不会自动打包python文件
+- release：release模式, 软件将不会自动打包python文件
+- releasePKG:打包模式,软件将自动打包python文件： python27_d.zip（debug版） 和 python27.zip（release版）
 
 
 ## 打包发行
-- 运行releasePKG之后, 软件将自动生成python27.zip包,需要在重新运行生成release模式下的exe. 这样程序将不再运行打包功能
+- 运行releasePKG之后, 软件将自动生成python27.zip包,需要在重新运行生成release模式下的exe. 这样程序将不再运行打包功能. python27.zip生成之后, 软件默认从zip文件中读取python文件

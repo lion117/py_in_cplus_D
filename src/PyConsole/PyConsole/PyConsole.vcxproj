@@ -191,6 +191,7 @@ del $(SolutionDir)Bin\Python27_d.zip
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FfpyFactory.h" />
     <ClInclude Include="ffpython.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -199,6 +200,7 @@ del $(SolutionDir)Bin\Python27_d.zip
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="example.cpp" />
+    <ClCompile Include="FfpyFactory.cpp" />
     <ClCompile Include="main_console.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -211,11 +213,9 @@ del $(SolutionDir)Bin\Python27_d.zip
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Python\fftest.py" />
-    <None Include="..\Python\operation.py" />
-    <None Include="..\Python\py_install.py" />
-    <None Include="..\Python\py_second.py" />
     <None Include="Py2CplusZipper.py" />
     <None Include="PycZipper.py" />
+    <None Include="test_interface.py" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -7,13 +7,14 @@
 using namespace std;
 
 #include "unit_test.h"
-
+#include "test_callback.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
 
     //testMain();
-    TestClass::main();
+    //TestClass::main();
+    ScreenIO::main();
 
     system("pause");
     return 0;

@@ -11,11 +11,11 @@
     <Filter Include="demo">
       <UniqueIdentifier>{5322b75c-e5dd-4273-8fea-58ff0c93ffd9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="package">
-      <UniqueIdentifier>{342d614b-bfe1-495b-89d7-79e1b0900c90}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="logic">
+    <Filter Include="PyLogic">
       <UniqueIdentifier>{8c81d40d-147b-4fa2-89c3-e098917f531d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PyLogic\Pylib">
+      <UniqueIdentifier>{342d614b-bfe1-495b-89d7-79e1b0900c90}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -40,6 +40,7 @@
     <ClInclude Include="test_callback.h">
       <Filter>unit test</Filter>
     </ClInclude>
+    <ClInclude Include="FfpyFactory.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -55,25 +56,20 @@
     <ClCompile Include="test_callback.cpp">
       <Filter>unit test</Filter>
     </ClCompile>
+    <ClCompile Include="FfpyFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Python\py_install.py">
-      <Filter>package</Filter>
-    </None>
     <None Include="..\Python\fftest.py">
       <Filter>demo</Filter>
     </None>
-    <None Include="..\Python\py_second.py">
-      <Filter>logic</Filter>
-    </None>
-    <None Include="..\Python\operation.py">
-      <Filter>logic</Filter>
-    </None>
     <None Include="PycZipper.py">
-      <Filter>package</Filter>
+      <Filter>PyLogic\Pylib</Filter>
     </None>
     <None Include="Py2CplusZipper.py">
-      <Filter>package</Filter>
+      <Filter>PyLogic\Pylib</Filter>
+    </None>
+    <None Include="test_interface.py">
+      <Filter>PyLogic</Filter>
     </None>
   </ItemGroup>
 </Project>

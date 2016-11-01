@@ -4,12 +4,9 @@
 #include <iostream>
 #include <map>
 
-#ifdef _WIN32
-#include <cstdlib>
-#endif
-#include "ffpython.h"
 using namespace std;
 
+#include "FfpyFactory.h"
 
 
 
@@ -28,8 +25,8 @@ class ScreenIO : public IOImpl
 public:
 	ScreenIO()
 	{
-		Py_Initialize();
-		ffpython_t::add_path("./");
+        _ptr_intepretor = new ffpython_t();
+        registToPy();
 	}
 
 	~ScreenIO()
@@ -43,16 +40,13 @@ public:
 		//_ffpython.obj_call(_pobj, "regCallBackObj", this);
 	}
 
-    void regToPy(ffpython_t& t_ffpython)
-    {
-        t_ffpython.reg_class<ScreenIO, void>("ScreenIO")
-            .reg(&ScreenIO::onRecieve, "onRecieve")
-            .reg(&ScreenIO::start, "start")
-            .reg(&ScreenIO::start, "stop")
-            .reg_property(&ScreenIO::_ffpython, "t_ffpython")
-            .reg_property(&ScreenIO::_pobj, "_pobj");
+#define POC void(*)
 
-        t_ffpython.init("ScreenIO_py");
+    void registToPy()
+    {
+        _ptr_intepretor->reg_class<IOImpl ,void** >("IOImpl")
+            .reg(&IOImpl::onRecieve, "onRecieve");
+        _ptr_intepretor->init("ScreenIO_py");
     }
 
 
@@ -60,30 +54,21 @@ public:
 	void onRecieve(string t_data){}
 
 public:
-	ffpython_t _ffpython;
 	PyObject*  _pobj;
-
-
-
-};
-
-
-
-class ScreenIOManager
-{
-public:
+    ffpython_t * _ptr_intepretor;
 
 #pragma region MAIN
 public:
     static void main()
     {
-        ScreenIOManager i_boss;
-        ScreenIO i_worker;
-        i_boss.regToPy(i_worker._ffpython);
+        ScreenIO i_obj;
 
 
     }
+
 #pragma endregion MAIN
 
-
 };
+
+
+

@@ -15,7 +15,9 @@ class ScreenIO(threading.Thread):
         threading.Thread.__init__(self)
 
     def regFuc(self,t_obj):
+        import ScreenIO_py
         self._cplus_obj = t_obj
+        t_obj.onRecieve("py regist")
 
 
 

@@ -48,8 +48,8 @@ public:
 
     void registToPy()
     {
-        _ptr_intepretor->reg_class<IOImpl , PYCTOR(int) >("IOImpl")
-            .reg(&IOImpl::onRecieve, "onRecieve");
+        _ptr_intepretor->reg_class<ScreenIO, PYCTOR(int) >("IOImpl")
+            .reg(&ScreenIO::onRecieve, "onRecieve");
         _ptr_intepretor->init("ScreenIO_py");
     }
 

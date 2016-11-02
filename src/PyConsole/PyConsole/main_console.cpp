@@ -8,6 +8,7 @@ using namespace std;
 
 #include "unit_test.h"
 #include "test_callback.h"
+//#include "vld.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {

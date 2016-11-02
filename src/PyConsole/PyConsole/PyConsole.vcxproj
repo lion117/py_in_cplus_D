@@ -216,6 +216,7 @@ del $(SolutionDir)Bin\Python27_d.zip
     <None Include="Py2CplusZipper.py" />
     <None Include="PycZipper.py" />
     <None Include="test_interface.py" />
+    <None Include="test_IO.py" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

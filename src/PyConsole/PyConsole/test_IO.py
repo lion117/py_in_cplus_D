@@ -5,7 +5,8 @@
 import  os,time
 import  threading
 
-
+def getPyObj():
+    return  ScreenIO()
 
 class ScreenIO(threading.Thread):
     _cplus_obj = None

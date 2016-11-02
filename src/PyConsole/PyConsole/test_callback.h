@@ -13,18 +13,20 @@ using namespace std;
 class IOImpl
 {
 public:
+    IOImpl(int){}
     virtual void onRecieve(string t_data) {};
 };
 
-
+#define  PYCTOR int (*)
+#define  PYCVOD void (*)
 
 
 
 class ScreenIO : public IOImpl
 {
 public:
-	ScreenIO()
-	{
+	ScreenIO(int t_data): IOImpl(t_data)
+	{   
         _ptr_intepretor = new ffpython_t();
         registToPy();
 	}
@@ -36,22 +38,27 @@ public:
 
 	void start()
 	{
-		//_pobj = _ffpython.call<PyObject*>("test_screen_IO", "getPyObj");
-		//_ffpython.obj_call(_pobj, "regCallBackObj", this);
+        _pobj = _ptr_intepretor->call<PyObject*>("test_IO", "getPyObj");
+        _ptr_intepretor->obj_call<void>(_pobj, "regFuc", this);
+        _ptr_intepretor->obj_call<void>(_pobj, "start");
+
 	}
 
 #define POC void(*)
 
     void registToPy()
     {
-        _ptr_intepretor->reg_class<IOImpl ,void** >("IOImpl")
+        _ptr_intepretor->reg_class<IOImpl , PYCTOR(int) >("IOImpl")
             .reg(&IOImpl::onRecieve, "onRecieve");
         _ptr_intepretor->init("ScreenIO_py");
     }
 
 
 	void stop(){}
-	void onRecieve(string t_data){}
+	void onRecieve(string t_data)
+    {
+        cout << "C++: " << t_data << endl;
+    }
 
 public:
 	PyObject*  _pobj;
@@ -61,7 +68,16 @@ public:
 public:
     static void main()
     {
-        ScreenIO i_obj;
+        try
+        {
+            ScreenIO i_obj(12);
+            i_obj.start();
+        }
+    
+        catch (exception & ex)
+        {
+            cout << ex.what() << endl;
+        }
 
 
     }

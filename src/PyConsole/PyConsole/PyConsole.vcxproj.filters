@@ -71,5 +71,8 @@
     <None Include="test_interface.py">
       <Filter>PyLogic</Filter>
     </None>
+    <None Include="test_IO.py">
+      <Filter>PyLogic</Filter>
+    </None>
   </ItemGroup>
 </Project>
